@@ -1,4 +1,7 @@
 class Exercise < ActiveRecord::Base
+  extend Slugifiable::ClassMethods
+  include Slugifiable::InstanceMethods
+  
   belongs_to :workout
 
   validates :name, presence: true
