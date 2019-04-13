@@ -10,3 +10,31 @@
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Workout">
 </form>
+
+<table>
+  <tr>
+    <th>Exercise</th>
+    <th>Sets</th>
+    <th>Reps</th>
+    <th>Weight(lbs)</th>
+    <% if @workout.user == current_user %>
+      <th><a href="/exercises/new">Add Exercise</a></th>
+    <% end %>
+  </tr>
+  <% @workout.exercises.each do |exercise| %>
+    <tr>
+      <td><%= exercise.name %></td>
+      <td><%= exercise.sets %></td>
+      <td><%= exercise.reps %></td>
+      <td><%= exercise.weight_lbs %></td>
+      <% if @workout.user == current_user %>
+      <td>
+        <form method="POST" action="/exercises/<%= exercise.id %>">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Delete Entry">
+        </form>
+      </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
