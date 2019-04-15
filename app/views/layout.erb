@@ -17,6 +17,7 @@
     <div class="wrapper">
       <% if logged_in? %>
         <a href="/">Home</a>
+        <a href="/users/<%= current_user.slug %>">Your Profile</a>
         <a href="/logout">Logout</a>
       <% end %>
 

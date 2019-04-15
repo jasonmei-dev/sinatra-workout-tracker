@@ -28,7 +28,7 @@ class WorkoutsController < ApplicationController
     if @workout.user == current_user
       erb :"workouts/edit"
     else
-      redirect "/users/#{@workout.user.slug}"
+      redirect "/workouts/#{@workout.id}"
     end
   end
 
@@ -42,8 +42,12 @@ class WorkoutsController < ApplicationController
   delete "/workouts/:id" do
     redirect_if_not_logged_in
     @workout = Workout.find(params[:id])
-    @workout.destroy if @workout.user == current_user
-    redirect "/users/#{@workout.user.slug}"
+    if @workout.user == current_user
+      @workout.destroy
+      redirect "/users/#{@workout.user.slug}"
+    else
+      redirect "/workouts/#{@workout.id}"
+    end
   end
 
 end

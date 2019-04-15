@@ -4,7 +4,6 @@
 <h2><%= @workout.duration_mins %> Minutes</h2>
 
 <a href="/workouts/<%= @workout.id %>/edit">Edit Workout</a>
-<a href="/exercises/new">Add Exercise</a>
 
 <form method="POST" action="/workouts/<%= @workout.id %>">
   <input type="hidden" name="_method" value="DELETE">
