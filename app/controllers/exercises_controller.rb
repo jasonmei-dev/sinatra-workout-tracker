@@ -18,6 +18,23 @@ class ExercisesController < ApplicationController
     end
   end
 
+  get '/exercises/:id/edit' do
+    redirect_if_not_logged_in
+    @exercise = Exercise.find(params[:id])
+    if @exercise.workout.user == current_user
+      erb :"/exercises/edit"
+    else
+      redirect "/workouts/#{session[:workout_id]}"
+    end
+  end
+
+  patch '/exercises/:id' do
+    redirect_if_not_logged_in
+    @exercise = Exercise.find(params[:id])
+    @exercise.update(params[:exercise]) if @exercise.workout.user == current_user
+    redirect "/workouts/#{session[:workout_id]}"
+  end
+
   delete '/exercises/:id' do
     redirect_if_not_logged_in
     @exercise = Exercise.find(params[:id])

@@ -1,7 +1,7 @@
 module Slugifiable
   module InstanceMethods
     def slug
-      (self.respond_to? :username) ? self.username.downcase.gsub(" ", "-") : self.name.downcase.gsub(" ", "-")
+      self.username.downcase.gsub(" ", "-")
     end
   end
 
