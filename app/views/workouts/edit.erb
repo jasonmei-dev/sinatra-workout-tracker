@@ -5,10 +5,10 @@
   <input type="hidden" name="_method" value="PATCH">
 
   <label>Workout Name:</label>
-  <input type="text" name="workout[name]" id="workout[name]">
+  <input type="text" name="workout[name]" id="workout[name]" value="<%= @workout.name %>">
 
   <label>Workout Duration (Minutes):</label>
-  <input type="text" name="workout[duration_mins]" id="workout[duration_mins]" placeholder="#">
+  <input type="text" name="workout[duration_mins]" id="workout[duration_mins]" placeholder="#" value="<%= @workout.duration_mins %>">
 
   <input type ="submit" id="submit" value="Submit">
 </form>

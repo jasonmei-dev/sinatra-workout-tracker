@@ -1,15 +1,15 @@
 <h1>Exercise Entry [EDIT]</h1>
-<form method="POST" action="/exercises">
+<form action="/exercises/<%= @exercise.id %>" method="POST">
   <input type="hidden" name="_method" value="PATCH">
 
   <label>Exercise Name</label>
-  <input type="text" name="exercise[name]">
+  <input type="text" name="exercise[name]" value="<%= @exercise.name %>">
   <label>Sets</label>
-  <input type="number" name="exercise[sets]" placeholder="#">
+  <input type="number" name="exercise[sets]" placeholder="#" value="<%= @exercise.sets %>">
   <label>Reps</label>
-  <input type="number" name="exercise[reps]" placeholder="#">
+  <input type="number" name="exercise[reps]" placeholder="#" value="<%= @exercise.reps %>">
   <label>Weight(lbs)</label>
-  <input type="number" name="exercise[weight_lbs]" placeholder="#">
+  <input type="number" name="exercise[weight_lbs]" placeholder="#" value="<%= @exercise.weight_lbs %>">
 
   <input type="submit" id="submit" value="Submit">
 </form>

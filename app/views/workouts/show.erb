@@ -29,10 +29,7 @@
       <td><%= exercise.weight_lbs %></td>
       <% if @workout.user == current_user %>
       <td>
-        <form method="POST" action="/exercises/<%= exercise.id %>">
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Edit Entry">
-        </form>
+        <a href="/exercises/<%= exercise.id %>/edit">Edit Entry</a>
 
         <form method="POST" action="/exercises/<%= exercise.id %>">
           <input type="hidden" name="_method" value="DELETE">
