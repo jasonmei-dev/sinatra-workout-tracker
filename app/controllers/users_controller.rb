@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      flash[:message] = "You successfully created an account. Welcome #{@user.username}!"
+      flash[:message] = "You successfully created an account!"
       redirect "/"
     else
       flash[:error] = "Account creation failed. Please try again!"
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      flash[:message] = "You have successfully logged in. Welcome back, #{@user.username}!"
+      flash[:message] = "You have successfully logged in!"
       redirect "/"
     else
       flash[:error] = "Your credentials were invalid. Please try again or sign up!"
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.destroy
-      flash[:message] = "You have been logged out."
+      flash[:message] = "You have been logged out!"
       redirect "/"
     else
       redirect "/"
