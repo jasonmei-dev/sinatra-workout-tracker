@@ -28,6 +28,7 @@ class WorkoutsController < ApplicationController
     if @workout.user == current_user
       erb :"workouts/edit"
     else
+      flash[:error] = "You can't edit another user's workout!"
       redirect "/workouts/#{@workout.id}"
     end
   end
@@ -46,6 +47,7 @@ class WorkoutsController < ApplicationController
       @workout.destroy
       redirect "/users/#{@workout.user.slug}"
     else
+      flash[:error] = "You can't delete another user's workout!"
       redirect "/workouts/#{@workout.id}"
     end
   end

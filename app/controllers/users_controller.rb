@@ -10,8 +10,10 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
+      flash[:message] = "You successfully created an account. Welcome #{@user.username}!"
       redirect "/"
     else
+      flash[:error] = "Account creation failed. Please try again!"
       redirect "/signup"
     end
   end
@@ -26,15 +28,22 @@ class UsersController < ApplicationController
 
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
+      flash[:message] = "You have successfully logged in. Welcome back, #{@user.username}!"
       redirect "/"
     else
+      flash[:error] = "Your credentials were invalid. Please try again or sign up!"
       redirect "/"
     end
   end
 
   get '/logout' do
-    session.destroy if logged_in?
-    redirect "/"
+    if logged_in?
+      session.destroy
+      flash[:message] = "You have been logged out."
+      redirect "/"
+    else
+      redirect "/"
+    end
   end
 
   get '/users' do
@@ -46,7 +55,6 @@ class UsersController < ApplicationController
   get '/users/:slug' do
     redirect_if_not_logged_in
     @user = User.find_by_slug(params[:slug])
-    # binding.pry
     erb :"users/show"
   end
 end
