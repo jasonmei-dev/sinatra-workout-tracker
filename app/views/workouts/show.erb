@@ -1,7 +1,6 @@
-<h1><%= @workout.user.username %>'s Workout</h1>
-<h2><%= @workout.name %></h2>
+<h1><%= @workout.name %></h1>
 <h2><%= @workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p") %></h2>
-<h2><%= @workout.duration_mins %> Minutes</h2>
+<h2>Duration: <%= @workout.duration_mins %> Minutes</h2>
 
 <a href="/workouts/<%= @workout.id %>/edit">Edit Workout</a>
 
@@ -16,6 +15,7 @@
     <th>Sets</th>
     <th>Reps</th>
     <th>Weight(lbs)</th>
+    <th>Notes</th>
     <% if @workout.user == current_user %>
       <th><a href="/exercises/new">Add Exercise</a></th>
     <% end %>
@@ -26,6 +26,7 @@
       <td><%= exercise.sets %></td>
       <td><%= exercise.reps %></td>
       <td><%= exercise.weight_lbs %></td>
+      <td><%= exercise.notes %></td>
       <% if @workout.user == current_user %>
       <td>
         <a href="/exercises/<%= exercise.id %>/edit">Edit Entry</a>

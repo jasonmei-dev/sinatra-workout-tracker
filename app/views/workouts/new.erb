@@ -1,11 +1,12 @@
 <h1><%= current_user.username %>'s New Workout</h1>
 <h2><%= Time.now.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p") %></h2>
+<h4>* Fields are Required</h4>
 
 <form action="/workouts" method="POST">
-  <label>Workout Name:</label>
+  <label>Workout Name: *</label>
   <input type="text" name="workout[name]" id="workout[name]">
 
-  <label>Workout Duration (Minutes):</label>
+  <label>Workout Duration (Minutes): *</label>
   <input type="text" name="workout[duration_mins]" id="workout[duration_mins]" placeholder="#">
 
   <input type ="submit" id="submit" value="Submit">

@@ -1,13 +1,16 @@
 <h1>New Exercise Entry</h1>
+<h4>* Fields are Required</h4>
 <form method="POST" action="/exercises">
-  <label>Exercise Name</label>
+  <label>Exercise Name *</label>
   <input type="text" name="exercise[name]">
-  <label>Sets</label>
+  <label>Sets *</label>
   <input type="number" name="exercise[sets]" placeholder="#">
-  <label>Reps</label>
+  <label>Reps *</label>
   <input type="number" name="exercise[reps]" placeholder="#">
   <label>Weight(lbs)</label>
   <input type="number" name="exercise[weight_lbs]" placeholder="#">
+  <label>Notes</label>
+  <textarea name="exercise[notes]" rows="5"></textarea>
 
   <input type="submit" id="submit" value="Submit">
 </form>
