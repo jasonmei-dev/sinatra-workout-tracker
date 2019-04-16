@@ -9,8 +9,10 @@ class WorkoutsController < ApplicationController
     redirect_if_not_logged_in
     @workout = current_user.workouts.new(params[:workout])
     if @workout.save
+      flash[:message] = "Workout created!"
       redirect "/workouts/#{@workout.id}"
     else
+      flash[:error] = "Workout creation failed! Please make sure all required fields are filled."
       redirect "/workouts/new"
     end
   end
@@ -45,6 +47,7 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     if @workout.user == current_user
       @workout.destroy
+      flash[:message] = "Workout deleted!"
       redirect "/users/#{@workout.user.slug}"
     else
       flash[:error] = "You can't delete another user's workout!"

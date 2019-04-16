@@ -11,10 +11,11 @@ class ExercisesController < ApplicationController
     @exercise.workout_id = session[:workout_id]
 
     if @exercise.save
+      flash[:message] = "Exercise added!"
       redirect "/workouts/#{session[:workout_id]}"
     else
-      @exercise.destroy if @exercise
-      redirect "/workouts/#{session[:workout_id]}"
+      flash[:error] = "Invalid Exercise Entry! Please make sure all required fields are filled."
+      redirect "/exercises/new"
     end
   end
 
@@ -38,7 +39,10 @@ class ExercisesController < ApplicationController
   delete '/exercises/:id' do
     redirect_if_not_logged_in
     @exercise = Exercise.find(params[:id])
-    @exercise.destroy if @exercise.workout.user == current_user
+    if @exercise.workout.user == current_user
+      flash[:message] = "Exercise deleted!"
+      @exercise.destroy
+    end
     redirect "/workouts/#{session[:workout_id]}"
   end
 end

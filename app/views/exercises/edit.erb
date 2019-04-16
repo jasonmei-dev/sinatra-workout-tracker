@@ -1,4 +1,5 @@
 <h1>Exercise Entry [EDIT]</h1>
+<h3><a href="/workouts/<%= session[:workout_id] %>">Back to Workout Page</a></h3>
 <h4>* Fields are Required</h4>
 <form action="/exercises/<%= @exercise.id %>" method="POST">
   <input type="hidden" name="_method" value="PATCH">
@@ -9,7 +10,7 @@
   <input type="number" name="exercise[sets]" placeholder="#" value="<%= @exercise.sets %>">
   <label>Reps *</label>
   <input type="number" name="exercise[reps]" placeholder="#" value="<%= @exercise.reps %>">
-  <label>Weight(lbs)</label>
+  <label>Weight (lbs)</label>
   <input type="number" name="exercise[weight_lbs]" placeholder="#" value="<%= @exercise.weight_lbs %>">
   <label>Notes</label>
   <textarea name="exercise[notes]" rows="5"><%= @exercise.notes %></textarea>
