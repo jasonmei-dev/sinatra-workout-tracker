@@ -1,6 +1,7 @@
 <h1><%= @workout.name %></h1>
 <h2><%= @workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p") %></h2>
 <h2>Duration: <%= @workout.duration_mins %> Minutes</h2>
+<h3><a href="/users/<%= @workout.user.slug %>">View User Profile</a></h3>
 
 <a href="/workouts/<%= @workout.id %>/edit">Edit Workout</a>
 
