@@ -3,12 +3,14 @@
 <h2>Duration: <%= @workout.duration_mins %> Minutes</h2>
 <h3><a href="/users/<%= @workout.user.slug %>">View User Profile</a></h3>
 
-<a href="/workouts/<%= @workout.id %>/edit">Edit Workout</a>
+<% if @workout.user == current_user %>
+  <a href="/workouts/<%= @workout.id %>/edit">Edit Workout</a>
 
-<form method="POST" action="/workouts/<%= @workout.id %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Workout">
-</form>
+  <form method="POST" action="/workouts/<%= @workout.id %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Workout">
+  </form>
+<% end %>
 
 <table>
   <tr>

@@ -1,18 +1,19 @@
 <h1>New Exercise Entry</h1>
-<h3><a href="/workouts/<%= session[:workout_id] %>">Back to Workout Page</a></h3>
 <h4>* Fields are Required</h4>
-
+<br>
 <form method="POST" action="/exercises">
   <label>Exercise Name *</label>
-  <input type="text" name="exercise[name]">
+  <input type="text" name="exercise[name]"><br>
   <label>Sets *</label>
-  <input type="number" name="exercise[sets]" placeholder="#">
+  <input type="number" name="exercise[sets]" placeholder="#"><br>
   <label>Reps *</label>
-  <input type="number" name="exercise[reps]" placeholder="#">
+  <input type="number" name="exercise[reps]" placeholder="#"><br>
   <label>Weight (lbs)</label>
-  <input type="number" name="exercise[weight_lbs]" placeholder="#">
-  <label>Notes</label>
-  <textarea name="exercise[notes]" rows="5"></textarea>
+  <input type="number" name="exercise[weight_lbs]" placeholder="#"><br>
+  <label>Notes</label><br>
+  <textarea name="exercise[notes]" rows="5"></textarea><br>
 
   <input type="submit" id="submit" value="Submit">
 </form>
+<br>
+<h4><a href="/workouts/<%= session[:workout_id] %>">Back to Workout Page</a></h4>
