@@ -1,19 +1,47 @@
-<h1>Sign Up Below:</h1>
+<div class="columns">
+  <div class="column is-one-third is-offset-one-third">
+    <h1 class="title">Sign Up Below</h1>
+    <p class="subtitle">* Required Fields</p>
 
-<form action='/signup' method="POST">
-  <label>Username</label>
-  <input type="text" name="username" id="username">
+    <form method="POST" action="/signup">
+      <div class="field">
+        <label class="label">Username *</label>
+        <p class="control has-icons-left">
+          <input class="input" type="text" name="username" id="username">
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+        </p>
+      </div>
 
-  <br>
+      <div class="field">
+        <label class="label">Email *</label>
+        <p class="control has-icons-left">
+          <input class="input" type="email" name="email" id="email">
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </p>
+      </div>
 
-  <label>Email</label>
-  <input type="text" name="email" id="email">
+      <div class="field">
+        <label class="label">Password *</label>
+        <p class="control has-icons-left">
+          <input class="input" type="password" name="password" id="password">
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+      </div>
 
-  <br>
-
-  <label>Password</label>
-  <input type="password" name="password" id="password">
-
-  <br>
-  <input type="submit" id="submit" value="Sign Up">
-</form>
+      <div class="field is-grouped">
+        <div class="control">
+          <input class="button is-primary" type="submit" id="submit" value="Submit">
+        </div>
+        <div class="control">
+          <a class="button is-text" href="/">Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
