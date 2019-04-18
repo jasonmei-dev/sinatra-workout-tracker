@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       redirect "/"
     else
       flash[:error] = "Your credentials were invalid. Please try again or sign up!"
-      redirect "/"
+      redirect "/login"
     end
   end
 
