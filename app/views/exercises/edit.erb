@@ -1,21 +1,54 @@
-<h1>Edit Exercise Entry</h1>
-<h4>* Fields are Required</h4>
-<br>
-<form action="/exercises/<%= @exercise.id %>" method="POST">
-  <input type="hidden" name="_method" value="PATCH">
+<div class="columns">
+  <div class="column is-one-third is-offset-one-third">
+    <h1 class="title">Edit Exercise Entry</h1>
+    <p class="subtitle">* Required Fields</p>
 
-  <label>Exercise Name *</label>
-  <input type="text" name="exercise[name]" value="<%= @exercise.name %>"><br>
-  <label>Sets *</label>
-  <input type="number" name="exercise[sets]" placeholder="#" value="<%= @exercise.sets %>"><br>
-  <label>Reps *</label>
-  <input type="number" name="exercise[reps]" placeholder="#" value="<%= @exercise.reps %>"><br>
-  <label>Weight (lbs)</label>
-  <input type="number" name="exercise[weight_lbs]" placeholder="#" value="<%= @exercise.weight_lbs %>"><br>
-  <label>Notes</label><br>
-  <textarea name="exercise[notes]" rows="5"><%= @exercise.notes %></textarea><br>
+    <form method="POST" action="/exercises/<%= @exercise.id %>">
+      <input type="hidden" name="_method" value="PATCH">
 
-  <input type="submit" id="submit" value="Submit">
-</form>
-<br>
-<h4><a href="/workouts/<%= session[:workout_id] %>">Back to Workout Page</a></h4>
+      <div class="field">
+        <label class="label">Exercise Name *</label>
+        <div class="control">
+          <input class="input" type="text" name="exercise[name]" id="exercise[name]" value="<%= @exercise.name %>">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Sets *</label>
+        <div class="control">
+          <input class="input" type="text" name="exercise[sets]" id="exercise[sets]" placeholder="#" value="<%= @exercise.sets %>">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Reps *</label>
+        <div class="control">
+          <input class="input" type="text" name="exercise[reps]" id="exercise[reps]" placeholder="#" value="<%= @exercise.reps %>">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Weight (lbs)</label>
+        <div class="control">
+          <input class="input" type="text" name="exercise[weight_lbs]" id="exercise[weight_lbs]" placeholder="#" value="<%= @exercise.weight_lbs %>">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Notes</label>
+        <div class="control">
+          <textarea class="textarea" name="exercise[notes]" id="exercise[notes]"><%= @exercise.notes %></textarea>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <input class="button is-primary" type="submit" id="submit" value="Submit">
+        </div>
+        <div class="control">
+          <a class="button is-text" href="/workouts/<%= session[:workout_id] %>">Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
