@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_logged_in
       if logged_in?
-        flash[:message] = "You are already logged in as #{current_user.username}!"
+        flash[:error] = "You are already logged in as #{current_user.username}!"
         redirect "/"
       end
     end
