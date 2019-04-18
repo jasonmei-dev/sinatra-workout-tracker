@@ -13,33 +13,32 @@
 
     <% if flash[:message] %>
       <div class="notification is-success">
-        <%= flash[:message] %>
+        <strong><%= flash[:message] %></strong>
       </div>
     <% end %>
 
     <% if flash[:error] %>
       <div class="notification is-danger">
-        <%= flash[:error] %>
+        <strong><%= flash[:error] %></strong>
       </div>
     <% end %>
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
-        <% if logged_in? %>
-          <div class="navbar-end">
-            <a class="navbar-item" href="/">
-              Home
-            </a>
+      <% if logged_in? %>
+        <div class="navbar-end">
+          <a class="navbar-item" href="/workouts/new">
+            <strong>Log Workout</strong>
+          </a>
 
-            <a class="navbar-item" href="/workouts/new">
-              Log Workout
-            </a>
+          <a class="navbar-item" href="/">
+            Home
+          </a>
 
-            <a class="navbar-item" href="/logout">
-              Logout
-            </a>
-          </div>
-        <% end %>
-      </div>
+          <a class="navbar-item" href="/logout">
+            Logout
+          </a>
+        </div>
+      <% end %>
     </nav>
 
       <%= yield %>

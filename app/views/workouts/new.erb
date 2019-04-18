@@ -2,7 +2,7 @@
   <div class="column is-one-third is-offset-one-third">
     <h1 class="title"><%= current_user.username %>'s New Workout</h1>
     <h2 class="subtitle"><%= Time.now.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p") %></h2>
-    <p class="subtitle">* Required Fields</p>
+    <h2 class="subtitle">* Required Fields</h2>
 
     <form method="POST" action="/workouts">
       <div class="field">

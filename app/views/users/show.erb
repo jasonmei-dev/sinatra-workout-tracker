@@ -10,7 +10,7 @@
 
 <section class="section">
   <div class="container">
-    <% @user.workouts.each_with_index do |workout, i| %>
+    <% @user.workouts.order(created_at: :desc).each_with_index do |workout, i| %>
       <div class="box">
         <a href="/workouts/<%= workout.id %>"><%= i + 1 %>. <%= workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p") %></a>
       </div>
