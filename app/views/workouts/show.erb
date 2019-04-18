@@ -1,45 +1,77 @@
-<h1><%= @workout.name %></h1>
-<h2><%= @workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p") %></h2>
-<h2>Duration: <%= @workout.duration_mins %> Minutes</h2>
-<h3><a href="/users/<%= @workout.user.slug %>">View User Profile</a></h3>
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        <%= @workout.name %>
+      </h1>
+      <h2 class="subtitle">
+        <%= @workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p") %><br>
+        Duration: <%= @workout.duration_mins %> Minutes
+      </h2>
+    </div>
+  </div>
+</section>
 
-<% if @workout.user == current_user %>
-  <a href="/workouts/<%= @workout.id %>/edit">Edit Workout</a>
+<section class="section">
+  <div class="container">
+    <div class="field is-grouped">
+      <p class="control">
+        <a class="button is-primary" href="/users/<%= @workout.user.slug %>">
+          View User Profile
+        </a>
+      </p>
 
-  <form method="POST" action="/workouts/<%= @workout.id %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Workout">
-  </form>
-<% end %>
-
-<table>
-  <tr>
-    <th>Exercise</th>
-    <th>Sets</th>
-    <th>Reps</th>
-    <th>Weight(lbs)</th>
-    <th>Notes</th>
-    <% if @workout.user == current_user %>
-      <th><a href="/exercises/new">Add Exercise</a></th>
-    <% end %>
-  </tr>
-  <% @workout.exercises.each do |exercise| %>
-    <tr>
-      <td><%= exercise.name %></td>
-      <td><%= exercise.sets %></td>
-      <td><%= exercise.reps %></td>
-      <td><%= exercise.weight_lbs %></td>
-      <td><%= exercise.notes %></td>
       <% if @workout.user == current_user %>
-      <td>
-        <a href="/exercises/<%= exercise.id %>/edit">Edit Entry</a>
-
-        <form method="POST" action="/exercises/<%= exercise.id %>">
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="Delete Entry">
-        </form>
-      </td>
+        <p class="control">
+          <a class="button is-primary is-outlined" href="/workouts/<%= @workout.id %>/edit">
+            Edit Workout
+          </a>
+        </p>
+        <p class="control">
+          <form method="POST" action="/workouts/<%= @workout.id %>">
+            <input type="hidden" name="_method" value="DELETE">
+            <input class="button is-danger" type="submit" value="Delete Workout">
+          </form>
+        </p>
       <% end %>
-    </tr>
-  <% end %>
-</table>
+    </div>
+
+    <br>
+
+    <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>Exercise</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Weight(lbs)</th>
+          <th>Notes</th>
+          <% if @workout.user == current_user %>
+            <th><a class="button is-primary is-fullwidth" href="/exercises/new">Add Exercise</a></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @workout.exercises.each do |exercise| %>
+          <tr>
+            <td><%= exercise.name %></td>
+            <td><%= exercise.sets %></td>
+            <td><%= exercise.reps %></td>
+            <td><%= exercise.weight_lbs %></td>
+            <td><%= exercise.notes %></td>
+            <% if @workout.user == current_user %>
+            <td>
+              <a class="button is-primary is-outlined is-fullwidth" href="/exercises/<%= exercise.id %>/edit">Edit Entry</a>
+
+              <form method="POST" action="/exercises/<%= exercise.id %>">
+                <input type="hidden" name="_method" value="DELETE">
+                <input class="button is-danger is-fullwidth" type="submit" value="Delete Entry">
+              </form>
+            </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

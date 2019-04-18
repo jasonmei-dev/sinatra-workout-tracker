@@ -1,5 +1,19 @@
-<h1>User Index</h1>
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        User Index
+      </h1>
+    </div>
+  </div>
+</section>
 
-<% @users.each_with_index do |user, i| %>
-  <a href="users/<%= user.slug %>"><%= i + 1 %>. <%= user.username %></a>
-<% end %>
+<section class="section">
+  <div class="container">
+    <% @users.each_with_index do |user, i| %>
+      <div class="box">
+        <a href="users/<%= user.slug %>"><%= i + 1 %>. <%= user.username %></a>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -55,11 +55,15 @@
   <body>
 
     <% if flash[:message] %>
-      <%= flash[:message] %>
+      <div class="notification is-success">
+        <%= flash[:message] %>
+      </div>
     <% end %>
 
     <% if flash[:error] %>
-      <%= flash[:error] %>
+      <div class="notification is-danger">
+        <%= flash[:error] %>
+      </div>
     <% end %>
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -87,6 +91,16 @@
     </nav>
 
       <%= yield %>
+
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            &copy; 2019 <strong>SinatraWorkoutTracker</strong> by <a href="https://jgthms.com">Jason Mei</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+          </p>
+        </div>
+      </footer>
 
   </body>
 </html>
