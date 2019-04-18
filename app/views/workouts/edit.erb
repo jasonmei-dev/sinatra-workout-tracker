@@ -1,17 +1,34 @@
-<h1>Edit <%= current_user.username %>'s Workout</h1>
-<h2><%= Time.now.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p") %></h2>
-<h4>* Fields are Required</h4>
-<br>
-<form action="/workouts/<%= @workout.id %>" method="POST">
-  <input type="hidden" name="_method" value="PATCH">
+<div class="columns">
+  <div class="column is-one-third is-offset-one-third">
+    <h1 class="title"><%= current_user.username %>'s New Workout</h1>
+    <h2 class="subtitle"><%= Time.now.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p") %></h2>
+    <p class="subtitle">* Required Fields</p>
 
-  <label>Workout Name *</label>
-  <input type="text" name="workout[name]" id="workout[name]" value="<%= @workout.name %>"><br>
+    <form method="POST" action="/workouts/<%= @workout.id %>">
+      <input type="hidden" name="_method" value="PATCH">
 
-  <label>Workout Duration (Minutes) *</label>
-  <input type="text" name="workout[duration_mins]" id="workout[duration_mins]" placeholder="#" value="<%= @workout.duration_mins %>"><br>
+      <div class="field">
+        <label class="label">Workout Name *</label>
+        <div class="control">
+          <input class="input" type="text" name="workout[name]" id="workout[name]" value="<%= @workout.name %>">
+        </div>
+      </div>
 
-  <input type ="submit" id="submit" value="Submit">
-</form>
-<br>
-<h4><a href="/workouts/<%= session[:workout_id] %>">Back to Workout Page</a></h4>
+      <div class="field">
+        <label class="label">Workout Duration (Minutes) *</label>
+        <div class="control">
+          <input class="input" type="text" name="workout[duration_mins]" id="workout[duration_mins]" value="<%= @workout.duration_mins %>">
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <input class="button is-primary" type="submit" id="submit" value="Submit">
+        </div>
+        <div class="control">
+          <a class="button is-text" href="/workouts/<%= session[:workout_id] %>">Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
