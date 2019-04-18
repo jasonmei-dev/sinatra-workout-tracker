@@ -1,6 +1,6 @@
 # Sinatra Workout Tracker
 
-This is a simple CRUD app made using Sinatra for Flatiron School's Sinatra Portfolio Project. This app allows a user to log and track their workouts and view other users' workouts.
+This is a simple CRUD app made for Flatiron School's Sinatra Portfolio Project. This app allows a user to log and track their workouts and view other users' workouts. This app was made using Sinatra, ActiveRecord, SQLite3, and Bulma CSS framework.
 
 ## Installation & Usage
 
