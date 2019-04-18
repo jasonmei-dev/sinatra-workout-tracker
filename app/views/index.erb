@@ -1,14 +1,18 @@
 <div class="columns is-centered">
   <div class="column is-one-third has-text-centered">
+    <img class="center" src="/images/gym.png">
+
+    <br>
+
     <h1 class="title">Sinatra Workout Tracker</h1>
 
     <% if logged_in? %>
-      <h3>Welcome, <%= current_user.username %>!</h3>
-      <a class="button is-primary" href="/users/<%= current_user.slug %>">View Your Profile</a>
-      <a class="button is-primary" href="/users">View User Index</a>
+      <h4 class="title is-4">Welcome, <%= current_user.username %>!</h4>
+      <a class="button is-primary" href="/users/<%= current_user.slug %>"><strong>View Your Profile</strong></a>
+      <a class="button is-primary" href="/users"><strong>View User Index</strong></a>
     <% else %>
-      <a class="button is-primary" href="/login"><strong>Login</strong></a>
-      <a class="button is-primary" href="/signup"><strong>Sign Up</strong></a>
+      <a class="button is-primary is-large" href="/login"><strong>Login</strong></a>
+      <a class="button is-primary is-large" href="/signup"><strong>Sign Up</strong></a>
     <% end %>
   </div>
 </div>
