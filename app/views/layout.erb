@@ -13,13 +13,13 @@
 
     <% if flash[:message] %>
       <div class="notification is-success">
-        <strong><%= flash[:message] %></strong>
+        <%= flash[:message] %>
       </div>
     <% end %>
 
     <% if flash[:error] %>
       <div class="notification is-danger">
-        <strong><%= flash[:error] %></strong>
+        <%= flash[:error] %>
       </div>
     <% end %>
 
@@ -43,11 +43,8 @@
 
       <%= yield %>
 
-    <footer>
+    <footer class="footer has-background-white">
       <div class="content has-text-centered">
-        <a href="https://bulma.io" style="float: right;">
-    		  	<img src="https://bulma.io/images/made-with-bulma--semiblack.png" alt="Made with Bulma" width="128" height="24">
-    		</a>
         <p>
           &copy; 2019 <strong>SinatraWorkoutTracker</strong> | Icons made by <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
         </p>

@@ -1,11 +1,9 @@
 <div class="columns is-centered">
   <div class="column is-one-third has-text-centered">
-    <img class="center" src="/images/gym.png">
-
-    <br>
-
+    <figure class="image is-square">
+      <img src="/images/gym.png">
+    </figure>
     <h1 class="title is-1">Sinatra Workout Tracker</h1>
-
     <% if logged_in? %>
       <h4 class="title is-4">Welcome, <%= current_user.username %>!</h4>
       <a class="button is-primary" href="/users/<%= current_user.slug %>"><strong>View Your Profile</strong></a>
