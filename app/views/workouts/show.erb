@@ -21,6 +21,12 @@
         </a>
       </p>
 
+      <p class="control">
+        <a class="button is-info" href="/users">
+          View User Index
+        </a>
+      </p>
+
       <% if @workout.user == current_user %>
         <p class="control">
           <a class="button is-primary is-outlined" href="/workouts/<%= @workout.id %>/edit">

@@ -2,14 +2,26 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        <%= @user.username %>'s Workouts
+        <%= @user.username %>'s Profile
       </h1>
+      <h2 class="subtitle">
+        Check out my workouts!
+      </h2>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
+    <p class="control">
+      <a class="button is-info" href="/users">
+        View User Index
+      </a>
+    </p>
+
+    <br>
+    <br>
+
     <% @user.workouts.order(created_at: :desc).each_with_index do |workout, i| %>
       <div class="box">
         <a href="/workouts/<%= workout.id %>"><%= i + 1 %>. <%= workout.created_at.in_time_zone("America/New_York").strftime("%A - %m/%d/%Y - %l:%M %p") %></a>
